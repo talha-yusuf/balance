@@ -9,6 +9,15 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json({type: 'application/json'}));
 
 
+var start = express.Router();
+start.get('/', function(request, res){
+
+    res.contentType('application/json');
+    res.end(JSON.stringify("API is deployed"));
+
+});
+app.use('/', start);
+
 // Get Balance
 var getBalance = express.Router();
 getBalance.post('/', function(request, res){
