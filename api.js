@@ -29,10 +29,10 @@ getBalance.post('/', function(request, res){
     .then(function(balance){
         value = web3.utils.fromWei(balance, 'ether');
         console.log(value);
+        res.contentType('application/json');
+        res.end(JSON.stringify(value));
     });
 
-    res.contentType('application/json');
-    res.end(JSON.stringify(value));
 });
 app.use('/balance', getBalance);
 
